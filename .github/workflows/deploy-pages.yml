@@ -18,8 +18,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      # GitHub only lets a repository administrator switch Pages on; the workflow token cannot create the Pages site
+      # ("Resource not accessible by integration"). Fail early with the exact instruction instead of a cryptic error.
+      - name: Check that GitHub Pages is switched on (one-time repository setting)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          status=$(curl -sS -o /tmp/pages.json -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/pages")
+          build_type=$(jq -r '.build_type // empty' /tmp/pages.json 2>/dev/null || true)
+          if [ "$status" != "200" ] || [ "$build_type" != "workflow" ]; then
+            echo "::error title=GitHub Pages is not enabled for GitHub Actions::Open https://github.com/$REPO/settings/pages and under 'Build and deployment' set Source to 'GitHub Actions' (only a repository admin can do this; the workflow token is not allowed to). Then re-run this workflow. (Pages API status $status, build_type '${build_type:-none}')"
+            exit 1
+          fi
+          echo "GitHub Pages is enabled (build_type=$build_type)"
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -28,10 +45,8 @@ jobs:
         run: npm run build -w app
         env:
           VITE_BASE: /${{ github.event.repository.name }}/
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: app/dist
 
@@ -43,4 +58,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

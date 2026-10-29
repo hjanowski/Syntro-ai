@@ -95,9 +95,18 @@ animated or fabricated: every result comes from pages that were actually loaded,
 
 ## Deploying the hosted demo
 
-Pushing to `main` runs `.github/workflows/deploy-pages.yml`, which builds the app with `VITE_BASE=/Syntro-ai/` and
-publishes `app/dist` (app + demo sites + SDK) to GitHub Pages. In the repository settings set **Pages → Source →
-GitHub Actions** once.
+Pushing to `main` runs `.github/workflows/deploy-pages.yml`, which builds the app with `VITE_BASE=/<repository name>/`
+and publishes `app/dist` (app + demo sites + SDK) to GitHub Pages.
+
+**One-time setup by the repository owner.** GitHub only lets a repository administrator switch Pages on, so the
+workflow cannot do it by itself. Open `https://github.com/<owner>/<repository>/settings/pages` (for this repository:
+https://github.com/hjanowski/Syntro-ai/settings/pages) and under **Build and deployment → Source** choose
+**GitHub Actions**. Until that is done the workflow stops early with an error that repeats this instruction. Afterwards
+re-run the failed workflow (Actions → Deploy to GitHub Pages → Re-run all jobs) or push any commit; the site is live a
+minute or two later.
+
+`.github/workflows/ci.yml` runs the typecheck, the engine unit tests, the app build and a real-browser end-to-end
+regression (six scenarios through the CLI, headless Chromium) on every push and pull request.
 
 ## Status
 
