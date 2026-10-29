@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulated Google Ads environment — Syntro</title>
+<link rel="stylesheet" href="channels.css">
+<script src="../harness/syntro-agent.js"></script>
+<script src="channels.js"></script>
+</head>
+<body class="g-page">
+<div class="sim-banner">SIMULATED ENVIRONMENT · Syntro mock of a search results page. Not affiliated with Google.<span id="campaign-label"></span></div>
+<div class="g-bar"><div class="g-logo">Searchly</div><div class="g-search">trail runner jacket</div></div>
+<div class="g-results">
+  <div class="g-ad" id="ad">
+    <div class="label">Sponsored</div>
+    <div class="url">aurorasupply.example <span>› jackets › trail-runner</span></div>
+    <a class="title" id="ad-cta" href="#"></a>
+    <div class="desc" id="ad-desc"></div>
+  </div>
+  <div class="g-org"><div class="url">outdoorgearlab.example › reviews</div><div class="title">The best lightweight running jackets of the year</div><div class="desc" style="color:#4d5156;font-size:14px">We tested twelve shells across three mountain ranges…</div></div>
+  <div class="g-org"><div class="url">trailforum.example › threads</div><div class="title">Packable jacket recommendations?</div><div class="desc" style="color:#4d5156;font-size:14px">Looking for something under 200 g that actually blocks wind…</div></div>
+</div>
+<script>
+  SIM.fill({
+    '#campaign-label': 'Campaign ' + SIM.campaignId + (SIM.creativeId ? ' · ' + SIM.creativeId : ''),
+    '#ad-cta': SIM.href,
+    '#ad-desc': SIM.body,
+  });
+  document.getElementById('ad-cta').textContent = SIM.headline;
+</script>
+</body>
+</html>

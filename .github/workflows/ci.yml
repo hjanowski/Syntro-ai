@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: Engine tests, typecheck, build, end-to-end
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Engine unit tests
+        run: npm test
+      - name: Build Layer 2 app
+        run: npm run build
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      - name: End-to-end regression (real browser journeys, fault injection)
+        run: npx tsx server/src/cli.ts run --scenario happy_path_multitouch,cross_device_login,linkedin_missing_utm,duplicate_purchase_events,lost_purchase_event,lookback_expiry --count 1 --no-persist --port 4321

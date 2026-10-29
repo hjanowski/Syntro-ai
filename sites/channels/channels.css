@@ -1,0 +1,91 @@
+:root { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; color: #111827; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f0f2f5; }
+.sim-banner { background: #111827; color: #fde68a; font-size: 12px; font-weight: 600; text-align: center; padding: 6px 12px; letter-spacing: .02em; }
+.sim-banner span { color: #fff; font-weight: 400; margin-left: 6px; }
+.topbar { height: 54px; display: flex; align-items: center; padding: 0 20px; gap: 14px; color: #fff; font-weight: 700; font-size: 18px; }
+.topbar .fake-search { flex: 1; max-width: 420px; background: rgba(255,255,255,.18); border-radius: 999px; height: 34px; }
+.feed { max-width: 560px; margin: 20px auto; display: flex; flex-direction: column; gap: 14px; padding: 0 12px; }
+.post { background: #fff; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.08); padding: 14px 16px; }
+.post .who { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg,#94a3b8,#64748b); }
+.avatar.brand { background: linear-gradient(135deg,#0f766e,#22c55e); }
+.who .name { font-weight: 700; font-size: 14px; }
+.who .meta { font-size: 12px; color: #6b7280; }
+.sponsored { font-size: 11px; color: #6b7280; }
+.creative { margin: 10px -16px; background: linear-gradient(135deg,#0f172a,#134e4a); color: #fff; padding: 36px 24px; text-align: center; font-size: 56px; }
+.creative small { display: block; font-size: 15px; color: #cbd5e1; margin-top: 10px; }
+.ad-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #f3f4f6; margin: 0 -16px -14px; padding: 12px 16px; border-radius: 0 0 12px 12px; }
+.ad-footer .domain { font-size: 12px; color: #6b7280; text-transform: uppercase; }
+.ad-footer .headline { font-weight: 700; font-size: 14px; }
+.cta { background: #e5e7eb; border: 0; border-radius: 6px; padding: 9px 14px; font-weight: 700; font-size: 14px; color: #111827; text-decoration: none; white-space: nowrap; }
+.cta.primary { background: #1877f2; color: #fff; }
+.cta.li { background: #0a66c2; color: #fff; border-radius: 999px; }
+.filler { color: #374151; font-size: 14px; line-height: 1.5; }
+.filler .img { height: 160px; border-radius: 10px; background: linear-gradient(135deg,#e5e7eb,#cbd5e1); margin-top: 10px; }
+/* Google */
+.g-page { background: #fff; min-height: 100vh; }
+.g-bar { display: flex; align-items: center; gap: 24px; padding: 18px 28px; border-bottom: 1px solid #e5e7eb; }
+.g-logo { font-weight: 800; font-size: 22px; letter-spacing: -0.03em; background: linear-gradient(90deg,#4285f4,#ea4335,#fbbc05,#34a853); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.g-search { flex: 1; max-width: 640px; border: 1px solid #dfe1e5; border-radius: 24px; padding: 11px 18px; font-size: 15px; color: #202124; box-shadow: 0 1px 6px rgba(32,33,36,.1); }
+.g-results { max-width: 650px; padding: 20px 28px 60px 180px; }
+.g-ad { padding: 14px 0 18px; border-bottom: 1px solid #f1f3f4; }
+.g-ad .label { font-weight: 700; font-size: 13px; color: #202124; margin-bottom: 2px; }
+.g-ad .url { font-size: 13px; color: #202124; }
+.g-ad .url span { color: #5f6368; }
+.g-ad a.title { display: block; color: #1a0dab; font-size: 20px; margin: 6px 0 4px; text-decoration: none; }
+.g-ad a.title:hover { text-decoration: underline; }
+.g-ad .desc { color: #4d5156; font-size: 14px; line-height: 1.5; }
+.g-org .title { color: #1a0dab; font-size: 20px; margin: 10px 0 4px; }
+.g-org .url { font-size: 13px; color: #5f6368; }
+/* Email */
+.mail { display: grid; grid-template-columns: 240px 1fr; min-height: calc(100vh - 32px); background: #fff; }
+.mail-list { border-right: 1px solid #e5e7eb; background: #f9fafb; }
+.mail-list h3 { margin: 0; padding: 16px; font-size: 14px; color: #6b7280; text-transform: uppercase; letter-spacing: .08em; }
+.mail-item { padding: 12px 16px; border-bottom: 1px solid #eef0f3; font-size: 13px; color: #374151; }
+.mail-item.active { background: #fff; border-left: 3px solid #0f766e; }
+.mail-item .from { font-weight: 700; color: #111827; }
+.mail-body { padding: 28px 40px; max-width: 720px; }
+.mail-body h1 { font-size: 22px; margin: 0 0 6px; }
+.mail-meta { color: #6b7280; font-size: 13px; margin-bottom: 24px; }
+.email-card { border: 1px solid #e5e7eb; border-radius: 14px; overflow: hidden; }
+.email-hero { background: linear-gradient(135deg,#0f172a,#134e4a); color: #fff; padding: 44px 32px; text-align: center; }
+.email-hero h2 { margin: 0 0 8px; font-size: 26px; }
+.email-hero p { color: #cbd5e1; margin: 0; }
+.email-content { padding: 26px 32px; color: #374151; font-size: 15px; line-height: 1.6; }
+.cta.email { display: inline-block; background: #0f766e; color: #fff; border-radius: 10px; padding: 12px 20px; }
+.unsub { font-size: 12px; color: #9ca3af; padding: 14px 32px 22px; }
+/* Messaging */
+.phone { max-width: 400px; margin: 30px auto; background: #fff; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,.18); overflow: hidden; border: 8px solid #111827; }
+.phone .head { padding: 14px 18px; display: flex; align-items: center; gap: 12px; color: #fff; font-weight: 700; }
+.phone.sms .head { background: #1f2937; }
+.phone.whatsapp .head { background: #075e54; }
+.thread { padding: 18px; min-height: 420px; display: flex; flex-direction: column; gap: 10px; }
+.phone.whatsapp .thread { background: #ece5dd; }
+.phone.sms .thread { background: #f3f4f6; }
+.bubble { max-width: 82%; padding: 10px 14px; border-radius: 16px; font-size: 14px; line-height: 1.45; background: #fff; box-shadow: 0 1px 1px rgba(0,0,0,.06); }
+.bubble.in { align-self: flex-start; border-bottom-left-radius: 4px; }
+.bubble.out { align-self: flex-end; background: #dcf8c6; border-bottom-right-radius: 4px; }
+.phone.sms .bubble.out { background: #0b84ff; color: #fff; }
+.bubble a { color: #0a66c2; word-break: break-all; }
+.phone.sms .bubble.in a { color: #0b84ff; }
+.bubble .time { display: block; font-size: 10px; color: #6b7280; margin-top: 4px; text-align: right; }
+/* Small screens: every simulated environment must fit a 360px-wide phone viewport. */
+@media (max-width: 700px) {
+  .mail { grid-template-columns: 1fr; min-height: 0; }
+  .mail-list { display: none; }
+  .mail-body { padding: 18px 16px; max-width: none; }
+  .mail-body h1 { font-size: 19px; }
+  .email-hero { padding: 28px 18px; }
+  .email-hero h2 { font-size: 21px; }
+  .email-content { padding: 20px 18px; }
+  .unsub { padding: 12px 18px 18px; }
+  .g-bar { padding: 12px 14px; gap: 12px; }
+  .g-results { padding: 14px 14px 40px; max-width: none; }
+  .g-ad a.title, .g-org .title { font-size: 18px; }
+  .feed { margin: 12px auto; padding: 0 8px; }
+  .creative { font-size: 44px; padding: 26px 14px; }
+  .ad-footer { flex-wrap: wrap; }
+  .phone { margin: 10px auto; border-width: 6px; border-radius: 22px; }
+  .thread { min-height: 360px; }
+}

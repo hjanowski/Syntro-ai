@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account — Aurora Supply Co.</title>
+<link rel="stylesheet" href="store.css">
+<script src="../shared/name-storage.js"></script>
+<script src="../../sdk/syntro.js" data-syntro-collector="auto"></script>
+<script src="../shared/mock-prod-analytics.js"></script>
+<script src="../harness/syntro-agent.js"></script>
+</head>
+<body data-page="account">
+<div class="test-banner">TEST STORE · Aurora Supply Co. is the Syntro demo website. Accounts are simulated — no passwords, no real data.</div>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Aurora Supply Co.</a>
+  <nav class="nav-links"><a href="products.html" data-nav="products">Shop</a><a href="account.html" data-nav="account">Account</a><a href="cart.html" data-nav="cart">Cart <span class="cart-pill" id="cart-count">0</span></a></nav>
+</div></header>
+<main class="wrap">
+  <h1 style="font-size:26px;letter-spacing:-0.02em">Your account</h1>
+  <div id="account-welcome" class="success hidden">Welcome back, <span id="welcome-name"></span>. You're signed in on this device.</div>
+  <div class="two-col" id="account-forms">
+    <form class="panel" id="login-form">
+      <h2>Sign in</h2>
+      <label>Email <input id="login-email" type="email" required placeholder="you@example.com"></label>
+      <p class="notice" style="margin:14px 0">Demo sign-in: no password required.</p>
+      <button class="btn block" id="login-submit" type="submit">Sign in</button>
+    </form>
+    <form class="panel" id="register-form">
+      <h2>Create an account</h2>
+      <div class="form-grid">
+        <label>First name <input id="reg-first" required></label>
+        <label>Last name <input id="reg-last" required></label>
+        <label class="full">Email <input id="reg-email" type="email" required></label>
+      </div>
+      <button class="btn secondary block" id="register-submit" type="submit" style="margin-top:14px">Create account</button>
+    </form>
+  </div>
+</main>
+<footer class="wrap">Aurora Supply Co. · Demo website bundled with Syntro</footer>
+<script src="catalog.js"></script>
+<script src="store.js"></script>
+</body>
+</html>

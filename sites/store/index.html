@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aurora Supply Co. — Outdoor gear</title>
+<link rel="stylesheet" href="store.css">
+<script src="../shared/name-storage.js"></script>
+<script src="../../sdk/syntro.js" data-syntro-collector="auto"></script>
+<script src="../shared/mock-prod-analytics.js"></script>
+<script src="../harness/syntro-agent.js"></script>
+</head>
+<body data-page="home">
+<div class="test-banner">TEST STORE · Aurora Supply Co. is the Syntro demo website. Checkout is simulated — no payments are processed and no orders are fulfilled.</div>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Aurora Supply Co.</a>
+  <nav class="nav-links"><a href="products.html" data-nav="products">Shop</a><a href="account.html" data-nav="account">Account</a><a href="cart.html" data-nav="cart">Cart <span class="cart-pill" id="cart-count">0</span></a></nav>
+</div></header>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <h1>Built for the ridge line.<br>Priced for the trailhead.</h1>
+      <p>Spring collection is live — technical layers, packs and shelter tested on real routes.</p>
+      <a class="btn" href="products.html" data-nav="shop-all">Shop the collection</a>
+    </div>
+    <div style="font-size:120px;text-align:center">🏔️</div>
+  </section>
+  <div class="section-title"><h2>Featured gear</h2><a href="products.html">View all →</a></div>
+  <div class="grid" id="featured-grid"></div>
+  <section class="newsletter">
+    <div><strong>Get 10% off your first order</strong><p class="muted" style="margin:4px 0 0">Trail reports, launch previews and member pricing. No spam.</p></div>
+    <form id="newsletter-form"><input id="newsletter-email" type="email" placeholder="you@example.com" required><button class="btn" id="newsletter-submit" type="submit">Subscribe</button></form>
+    <div id="newsletter-success" class="success hidden">You're in — check your inbox for the welcome offer.</div>
+  </section>
+</main>
+<footer class="wrap">Aurora Supply Co. · Demo website bundled with Syntro · Instrumented with the Syntro SDK · Production analytics simulated and guarded</footer>
+<script src="catalog.js"></script>
+<script src="store.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulated LinkedIn Ads environment — Syntro</title>
+<link rel="stylesheet" href="channels.css">
+<script src="../harness/syntro-agent.js"></script>
+<script src="channels.js"></script>
+</head>
+<body>
+<div class="sim-banner">SIMULATED ENVIRONMENT · Syntro mock of a professional network feed. Not affiliated with LinkedIn.<span id="campaign-label"></span></div>
+<div class="topbar" style="background:#0a66c2"><span>workedin</span><div class="fake-search"></div></div>
+<div class="feed">
+  <div class="post"><div class="who"><div class="avatar"></div><div><div class="name">Priya R. · Head of Field Operations</div><div class="meta">1d</div></div></div><div class="filler">Our survey crews spend 200 days a year outdoors. Equipment is a retention tool, not a cost line.</div></div>
+  <div class="post" id="ad">
+    <div class="who"><div class="avatar brand"></div><div><div class="name">Aurora Supply Co.</div><div class="meta sponsored">Promoted · <span id="creative-label"></span></div></div></div>
+    <div class="filler" id="ad-body"></div>
+    <div class="creative">🥾<small id="ad-headline"></small></div>
+    <div class="ad-footer"><div><div class="domain" id="ad-domain"></div><div class="headline" id="ad-headline-2"></div></div><a class="cta li" id="ad-cta" href="#">Learn more</a></div>
+  </div>
+  <div class="post"><div class="who"><div class="avatar"></div><div><div class="name">Tomas N. · Procurement Lead</div><div class="meta">2d</div></div></div><div class="filler">Consolidating our outdoor equipment vendors this quarter. Open to recommendations.</div></div>
+</div>
+<script>
+  SIM.fill({
+    '#campaign-label': 'Campaign ' + SIM.campaignId,
+    '#creative-label': SIM.creativeId || 'creative',
+    '#ad-body': SIM.body,
+    '#ad-headline': SIM.headline,
+    '#ad-headline-2': SIM.headline,
+    '#ad-domain': SIM.destDomain,
+    '#ad-cta': SIM.href,
+  });
+</script>
+</body>
+</html>

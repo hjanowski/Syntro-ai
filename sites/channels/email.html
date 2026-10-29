@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulated inbox — Syntro</title>
+<link rel="stylesheet" href="channels.css">
+<script src="../harness/syntro-agent.js"></script>
+<script src="channels.js"></script>
+</head>
+<body>
+<div class="sim-banner">SIMULATED ENVIRONMENT · Syntro mock email client. No email is sent or received.<span id="campaign-label"></span></div>
+<div class="mail">
+  <aside class="mail-list">
+    <h3>Inbox</h3>
+    <div class="mail-item active"><div class="from">Aurora Supply Co.</div><div id="list-subject"></div></div>
+    <div class="mail-item"><div class="from">Ridge Runners Club</div>Saturday dawn patrol — RSVP</div>
+    <div class="mail-item"><div class="from">Trail Forum Digest</div>12 new replies in “packable jackets”</div>
+  </aside>
+  <section class="mail-body">
+    <h1 id="subject"></h1>
+    <div class="mail-meta">From Aurora Supply Co. &lt;hello@aurorasupply.example&gt; · to <span id="to"></span></div>
+    <div class="email-card">
+      <div class="email-hero"><h2 id="hero-title"></h2><p>Technical layers, packs and shelter tested on real routes.</p></div>
+      <div class="email-content">
+        <p>Hi <span id="greeting-name"></span>,</p>
+        <p id="email-body">Spring is here and so is the collection we have been testing all winter. Lightweight shells, bounce-free packs and a two-person tent that pitches in under two minutes.</p>
+        <p><a class="cta email" id="email-cta" href="#">Shop the collection</a></p>
+        <p style="color:#6b7280;font-size:13px">Members get 10% off their first order this week.</p>
+      </div>
+      <div class="unsub">You receive this because you joined the Aurora newsletter. Unsubscribe · Preferences</div>
+    </div>
+  </section>
+</div>
+<script>
+  SIM.fill({
+    '#campaign-label': 'Campaign ' + SIM.campaignId,
+    '#list-subject': SIM.subject,
+    '#subject': SIM.subject,
+    '#hero-title': SIM.subject,
+    '#greeting-name': SIM.customer,
+    '#to': SIM.customer.toLowerCase() + '@synthetic.syntro.invalid',
+    '#email-cta': SIM.href,
+  });
+</script>
+</body>
+</html>

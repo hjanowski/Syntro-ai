@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Product — Aurora Supply Co.</title>
+<link rel="stylesheet" href="store.css">
+<script src="../shared/name-storage.js"></script>
+<script src="../../sdk/syntro.js" data-syntro-collector="auto"></script>
+<script src="../shared/mock-prod-analytics.js"></script>
+<script src="../harness/syntro-agent.js"></script>
+</head>
+<body data-page="product">
+<div class="test-banner">TEST STORE · Aurora Supply Co. is the Syntro demo website. Checkout is simulated — no payments are processed and no orders are fulfilled.</div>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Aurora Supply Co.</a>
+  <nav class="nav-links"><a href="products.html" data-nav="products">Shop</a><a href="account.html" data-nav="account">Account</a><a href="cart.html" data-nav="cart">Cart <span class="cart-pill" id="cart-count">0</span></a></nav>
+</div></header>
+<main class="wrap">
+  <div class="product">
+    <div class="art" id="product-art"></div>
+    <div>
+      <span class="cat muted" id="product-category" style="text-transform:uppercase;font-size:12px;letter-spacing:.08em;font-weight:600"></span>
+      <h1 id="product-title"></h1>
+      <p class="muted" id="product-tagline" style="margin:0"></p>
+      <div class="price-big" id="product-price"></div>
+      <p id="product-description"></p>
+      <div class="qty-row"><label>Qty <input id="qty" type="number" min="1" value="1"></label></div>
+      <button class="btn" id="add-to-cart" type="button">Add to cart</button>
+      <p class="notice" style="margin-top:18px">Test store: adding to cart and checking out never charges anything.</p>
+    </div>
+  </div>
+</main>
+<div class="toast" id="cart-toast">Added to cart <a href="cart.html" id="view-cart">View cart →</a></div>
+<footer class="wrap">Aurora Supply Co. · Demo website bundled with Syntro</footer>
+<script src="catalog.js"></script>
+<script src="store.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.vite/
+server/data/
+*.log
+.DS_Store
+Thumbs.db
+coverage/
+test-results/
+playwright-report/
+.env
+.env.local
+.claude/

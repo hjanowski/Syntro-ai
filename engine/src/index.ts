@@ -1,0 +1,28 @@
+// Syntro Layer 1 — Simulation & Validation Engine (public surface)
+export * from './domain/types.ts';
+export * from './contracts/v1.ts';
+export * from './store/store.ts';
+export * from './tokens/session-token.ts';
+export * from './customers/generate.ts';
+export * from './journeys/node-catalog.ts';
+export * from './journeys/graph.ts';
+export * from './journeys/templates.ts';
+export * from './channels/urls.ts';
+export * from './execution/driver.ts';
+export * from './execution/config.ts';
+export * from './execution/executor.ts';
+export * from './execution/runner.ts';
+export * from './collector/collector.ts';
+export * from './ledger/expectations.ts';
+export * from './attribution/reference.ts';
+export * from './attribution/facing.ts';
+export * from './attribution/platform-feed.ts';
+export * from './attribution/adapters/index.ts';
+export { LocalAttributionSystem } from './attribution/sut/local-attribution-system.ts';
+export * from './validation/validator.ts';
+export * from './validation/diagnostics.ts';
+export * from './service/engine-service.ts';
+export { randomId, randomHex } from './util/ids.ts';
+export { Rng, hashString } from './util/rng.ts';
+export { nowIso, sleep, DAY_MS, HOUR_MS, VirtualClock } from './util/time.ts';
+export { sha256Hex } from './util/encoding.ts';

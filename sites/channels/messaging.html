@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulated messaging — Syntro</title>
+<link rel="stylesheet" href="channels.css">
+<script src="../harness/syntro-agent.js"></script>
+<script src="channels.js"></script>
+</head>
+<body>
+<div class="sim-banner">SIMULATED ENVIRONMENT · Syntro mock messaging client. No SMS or WhatsApp message is sent.<span id="campaign-label"></span></div>
+<div class="phone" id="phone">
+  <div class="head"><div class="avatar brand" style="width:34px;height:34px"></div><div>Aurora Supply Co.<div style="font-size:11px;font-weight:400;opacity:.8" id="channel-label"></div></div></div>
+  <div class="thread">
+    <div class="bubble out">Hi! Still have the Trail Runner Jacket in stock?<span class="time">Yesterday 18:42</span></div>
+    <div class="bubble in">Yes — all sizes are in. Want us to hold one for you?<span class="time">Yesterday 18:44</span></div>
+    <div class="bubble in"><span id="message-body"></span><br><a id="message-cta" href="#">aurorasupply.example/offer</a><span class="time">Just now</span></div>
+  </div>
+</div>
+<script>
+  var isWhatsApp = SIM.channel === 'whatsapp';
+  document.getElementById('phone').classList.add(isWhatsApp ? 'whatsapp' : 'sms');
+  SIM.fill({
+    '#campaign-label': 'Campaign ' + SIM.campaignId,
+    '#channel-label': isWhatsApp ? 'WhatsApp Business (simulated)' : 'SMS (simulated)',
+    '#message-body': SIM.body,
+    '#message-cta': SIM.href,
+  });
+</script>
+</body>
+</html>

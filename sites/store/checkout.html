@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout — Aurora Supply Co.</title>
+<link rel="stylesheet" href="store.css">
+<script src="../shared/name-storage.js"></script>
+<script src="../../sdk/syntro.js" data-syntro-collector="auto"></script>
+<script src="../shared/mock-prod-analytics.js"></script>
+<script src="../harness/syntro-agent.js"></script>
+</head>
+<body data-page="checkout">
+<div class="test-banner">TEST STORE · Aurora Supply Co. is the Syntro demo website. Checkout is simulated — no payments are processed and no orders are fulfilled.</div>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Aurora Supply Co.</a>
+  <nav class="nav-links"><a href="products.html" data-nav="products">Shop</a><a href="account.html" data-nav="account">Account</a><a href="cart.html" data-nav="cart">Cart <span class="cart-pill" id="cart-count">0</span></a></nav>
+</div></header>
+<main class="wrap">
+  <h1 style="font-size:26px;letter-spacing:-0.02em">Test checkout</h1>
+  <div id="checkout-empty" class="panel hidden"><p class="muted" style="margin:0 0 12px">Nothing to check out — your cart is empty.</p><a class="btn secondary" href="products.html">Browse gear</a></div>
+  <div class="two-col">
+    <form class="panel" id="checkout-form">
+      <h2>Contact & delivery</h2>
+      <div class="form-grid">
+        <label class="full">Email <input id="email" type="email" required placeholder="you@example.com"></label>
+        <label>First name <input id="first-name" required></label>
+        <label>Last name <input id="last-name" required></label>
+        <label class="full">Address <input id="address" required></label>
+        <label>City <input id="city" required></label>
+        <label>Postal code <input id="postal" required></label>
+      </div>
+      <p class="notice" style="margin:16px 0">No payment is collected. Placing this order creates a flagged <strong>test order</strong> that is excluded from fulfilment and revenue reporting.</p>
+      <button class="btn block" id="place-order" type="submit">Place test order</button>
+    </form>
+    <aside class="panel">
+      <h2>Order summary</h2>
+      <table><tbody id="summary-body"></tbody><tfoot><tr><td>Total</td><td id="summary-total" style="text-align:right">$0.00</td></tr></tfoot></table>
+    </aside>
+  </div>
+</main>
+<footer class="wrap">Aurora Supply Co. · Demo website bundled with Syntro</footer>
+<script src="catalog.js"></script>
+<script src="store.js"></script>
+</body>
+</html>

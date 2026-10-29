@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart — Aurora Supply Co.</title>
+<link rel="stylesheet" href="store.css">
+<script src="../shared/name-storage.js"></script>
+<script src="../../sdk/syntro.js" data-syntro-collector="auto"></script>
+<script src="../shared/mock-prod-analytics.js"></script>
+<script src="../harness/syntro-agent.js"></script>
+</head>
+<body data-page="cart">
+<div class="test-banner">TEST STORE · Aurora Supply Co. is the Syntro demo website. Checkout is simulated — no payments are processed and no orders are fulfilled.</div>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Aurora Supply Co.</a>
+  <nav class="nav-links"><a href="products.html" data-nav="products">Shop</a><a href="account.html" data-nav="account">Account</a><a href="cart.html" data-nav="cart">Cart <span class="cart-pill" id="cart-count">0</span></a></nav>
+</div></header>
+<main class="wrap">
+  <h1 style="font-size:26px;letter-spacing:-0.02em">Your cart</h1>
+  <div id="cart-empty" class="panel hidden"><p class="muted" style="margin:0 0 12px">Your cart is empty.</p><a class="btn secondary" href="products.html">Browse gear</a></div>
+  <div id="cart-table">
+    <table>
+      <thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Subtotal</th></tr></thead>
+      <tbody id="cart-body"></tbody>
+      <tfoot><tr><td colspan="3">Total</td><td id="cart-total">$0.00</td></tr></tfoot>
+    </table>
+    <div style="margin-top:18px;display:flex;justify-content:flex-end"><a class="btn" id="checkout" href="checkout.html">Proceed to test checkout</a></div>
+  </div>
+</main>
+<footer class="wrap">Aurora Supply Co. · Demo website bundled with Syntro</footer>
+<script src="catalog.js"></script>
+<script src="store.js"></script>
+</body>
+</html>

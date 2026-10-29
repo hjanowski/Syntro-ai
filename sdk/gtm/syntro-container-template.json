@@ -1,0 +1,54 @@
+{
+  "_comment": "Syntro GTM recipe (prototype). Import as a reference or recreate manually: one Custom HTML tag loading the SDK on Initialization, one Data Layer Variable, one Custom Event trigger used as an exception on every production tag. Not verified against a live container.",
+  "exportFormatVersion": 2,
+  "containerVersion": {
+    "name": "Syntro synthetic session guard",
+    "tag": [
+      {
+        "name": "Syntro SDK",
+        "type": "html",
+        "parameter": [
+          {
+            "type": "TEMPLATE",
+            "key": "html",
+            "value": "<script src=\"https://YOUR-SYNTRO-HOST/sdk/syntro.js\" data-syntro-collector=\"auto\"></script>"
+          },
+          { "type": "BOOLEAN", "key": "supportDocumentWrite", "value": "false" }
+        ],
+        "firingTriggerId": ["2857720153"],
+        "tagFiringOption": "ONCE_PER_EVENT",
+        "_comment": "Fire on Initialization – All Pages so syntro.isSynthetic() is known before any production tag."
+      }
+    ],
+    "trigger": [
+      {
+        "triggerId": "2857720153",
+        "name": "Initialization - All Pages",
+        "type": "INIT"
+      },
+      {
+        "triggerId": "2857720154",
+        "name": "Syntro synthetic session (blocking exception)",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          { "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "syntro_session_evaluated" }] }
+        ],
+        "filter": [
+          { "type": "EQUALS", "parameter": [{ "type": "TEMPLATE", "key": "arg0", "value": "{{DLV - syntro_synthetic}}" }, { "type": "TEMPLATE", "key": "arg1", "value": "true" }] }
+        ],
+        "_comment": "Add this trigger as an EXCEPTION on GA4, Meta Pixel, Google Ads, LinkedIn Insight, CDP and attribution tags."
+      }
+    ],
+    "variable": [
+      {
+        "name": "DLV - syntro_synthetic",
+        "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" },
+          { "type": "TEMPLATE", "key": "name", "value": "syntro_synthetic" }
+        ]
+      }
+    ]
+  }
+}

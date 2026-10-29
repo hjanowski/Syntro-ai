@@ -1,0 +1,35 @@
+{
+  "name": "syntro",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Syntro — Simulate the journey. Trust the attribution. AI-powered attribution testing platform.",
+  "type": "module",
+  "workspaces": [
+    "engine",
+    "server",
+    "app"
+  ],
+  "scripts": {
+    "test": "npm run test -w engine",
+    "typecheck": "npm run typecheck -w engine && npm run typecheck -w server && npm run typecheck -w app",
+    "build": "npm run build -w app",
+    "build:pages": "cross-env VITE_BASE=/Syntro-ai/ npm run build -w app",
+    "dev": "npm run dev -w server",
+    "dev:app": "npm run dev -w app",
+    "serve": "npm run start -w server",
+    "demo": "npm run demo -w server",
+    "cli": "npm run cli -w server --"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "esbuild@0.21.5": true,
+    "esbuild@0.25.12": true
+  }
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conversion — Aurora Supply Co.</title>
+<link rel="stylesheet" href="store.css">
+<script src="../shared/name-storage.js"></script>
+<script src="../../sdk/syntro.js" data-syntro-collector="auto"></script>
+<script src="../shared/mock-prod-analytics.js"></script>
+<script src="../harness/syntro-agent.js"></script>
+</head>
+<body data-page="conversion">
+<div class="test-banner">TEST STORE · Custom conversion endpoint page used by Syntro journeys to fire a configurable conversion event.</div>
+<header class="site"><div class="wrap nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Aurora Supply Co.</a>
+  <nav class="nav-links"><a href="products.html" data-nav="products">Shop</a><a href="account.html" data-nav="account">Account</a><a href="cart.html" data-nav="cart">Cart <span class="cart-pill" id="cart-count">0</span></a></nav>
+</div></header>
+<main class="wrap">
+  <div class="panel confirm">
+    <div class="check">✓</div>
+    <h1>Request received</h1>
+    <div id="conversion-fired" class="hidden"><p class="muted">Conversion <strong id="conversion-type"></strong> · <span id="conversion-value"></span></p></div>
+  </div>
+</main>
+<script src="catalog.js"></script>
+<script src="store.js"></script>
+</body>
+</html>
